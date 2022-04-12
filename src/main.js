@@ -1,4 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).mount('#app')
+import "./assets/style.css"
+import appHeader from "@/components/shared/appHeader.vue"
+import appBookmarkList from "@/components/shared/appBookmarkList";
+
+const app = createApp(App)
+app.use(router)
+app.component('appHeader', appHeader)
+app.component('appBookmarkList', appBookmarkList)
+app.mount('#app')
+
