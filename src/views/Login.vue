@@ -27,7 +27,12 @@ export default {
    onSubmit() {
      const password = CyrptoJS.HmacSHA1(this.userData.password,this.$store.getters._saltKey).toString();
      this.$appAxios.get(`/users?username=${this.userData.username}&password=${password}`).then(response => {
-       console.log(response);
+      if(response?.data?.length > 0) {
+        this.$store.commit('setUser',response.data[0]);
+        this.$router.push({ name: 'Home' });
+      } else {
+         alert("Kullanıcı adı veya şifre hatalı!");
+      }
      }).catch(error => {
        console.log(error);
      });
