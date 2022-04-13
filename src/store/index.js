@@ -2,7 +2,8 @@ import {createStore} from 'vuex';
 
 export default createStore({
     state: {
-        user:null
+        user:null,
+        saltKey: 'booklike123!456'
     },
     getters:{
         _isAuthenticated: state=> state.user !== null,
@@ -11,6 +12,7 @@ export default createStore({
             const user = state?.user;
             delete user.password;
             return user;
-        }
+        },
+        _saltKey: state=> state.saltKey
      },
 });

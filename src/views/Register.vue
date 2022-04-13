@@ -26,8 +26,7 @@ export default {
   },
   methods: {
     onSave() {
-      const key = 'booklike123!456';
-      const password = CyrptoJS.AES.encrypt(key, this.userData.password).toString();
+      const password = CyrptoJS.HmacSHA1(this.userData.password,this.$store.getters._saltKey).toString();
       // userdatanın hepsini kaydet fakat passwordun saltını ekleyip kaydet
      this.$appAxios.post("/users",{...this.userData, password}).then(registered_user_response =>{
         this.$router.push({name:'Home'})
