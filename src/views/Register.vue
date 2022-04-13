@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import CyrptoJS from 'crypto-js'
 export default {
   data() {
     return {
@@ -25,8 +26,14 @@ export default {
   },
   methods: {
     onSave() {
-       console.log(this.userData);
-    }
+      const key = 'booklike123!456';
+      const password = CyrptoJS.AES.encrypt(key, this.userData.password).toString();
+      // userdatanın hepsini kaydet fakat passwordun saltını ekleyip kaydet
+     this.$appAxios.post("/users",{...this.userData, password}).then(registered_user_response =>{
+        this.$router.push({name:'Home'})
+       console.log(registered_user_response)
+     })
+   }
   }
 }
 </script>

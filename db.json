@@ -1,5 +1,30 @@
 {
-  "users": [],
+  "users": [
+    {
+      "username": null,
+      "fullname": "k4@gmail.com",
+      "password": "U2FsdGVkX180iLW9NG/cj7I9gWYXqLMzlM7SK4O8jNc=",
+      "id": 1
+    },
+    {
+      "username": null,
+      "fullname": "k4@gmail.com",
+      "password": "U2FsdGVkX199d7HGvkW0e/H1AkP0nk/UMP0+RXbMyqo=",
+      "id": 2
+    },
+    {
+      "username": null,
+      "fullname": "k4@gmail.com",
+      "password": "U2FsdGVkX18uUrwOP+fnaBFXwOnFWPa27MxvaTOcGhQ=",
+      "id": 3
+    },
+    {
+      "username": null,
+      "fullname": "k4@gmail.com",
+      "password": "U2FsdGVkX1+UCaQUtTQGqdaOk3KTttYsiPFSOliwDhs=",
+      "id": 4
+    }
+  ],
   "bookmarks": [],
   "categories": []
 }
