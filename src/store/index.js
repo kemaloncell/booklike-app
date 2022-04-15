@@ -12,6 +12,9 @@ export default createStore({
         setUser(state, user) {
             state.user = user;
         },
+        logoutUser(state) {
+            state.user = null;
+        }
     },
     getters:{
         _isAuthenticated: state=> state.user !== null,
@@ -23,6 +26,8 @@ export default createStore({
         },
         _saltKey: state=> state.saltKey
      },
+
+
     // vuex-persistedstate ile store'ın içinde bir değişiklik olursa secure ile şifrelenmiş şekilde localStorage'a kaydedilir
     plugins: [createPersistedState({
         storage: {
