@@ -1,4 +1,5 @@
 import { createRouter ,createWebHistory} from 'vue-router'
+import store from '../store'
 
 const routes=[
     {
@@ -24,7 +25,21 @@ const routes=[
 ];
 
 
-export default createRouter({
+const router =  createRouter({
     routes,
     history: createWebHistory()
 })
+
+//kullanıcı giriş yapmış mı kontrolü
+router.beforeEach((to, from, next) => {
+    const authRequiredRoutes = ['Home'];
+    const _authenticated = store.getters._isAuthenticated
+    if(authRequiredRoutes.indexOf(to.name) > - 1) {
+        if (_authenticated)
+            next();
+        else next({ name: 'Login' });
+    }
+    else next();
+    });
+
+export default router;
