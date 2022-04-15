@@ -31,15 +31,21 @@ const router =  createRouter({
 })
 
 //kullanıcı giriş yapmış mı kontrolü
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
     const authRequiredRoutes = ['Home'];
+    const authNotRequiredRoutes = ['Login', 'Register'];
     const _authenticated = store.getters._isAuthenticated
+
+    if(authNotRequiredRoutes.indexOf(to.name) > -1 && _authenticated) next(false)
+
     if(authRequiredRoutes.indexOf(to.name) > - 1) {
-        if (_authenticated)
-            next();
+        if (_authenticated) next();
         else next({ name: 'Login' });
     }
-    else next();
+    else {
+        next();
+    }
     });
+
 
 export default router;
