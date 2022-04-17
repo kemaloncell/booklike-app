@@ -5,7 +5,7 @@
     <input v-model="userData.url" type="text" placeholder="URL" class="input mb-3" />
     <select class="input mb-3" v-model="userData.category_id">
       <option disabled value="" selected>Kategori</option>
-      <option value="category.id" v-for="category in categoryList" :key="category.id">{{category.name}}</option>
+      <option value="{{category.id}}" v-for="category in categoryList" :key="category.id">{{category.name}}</option>
     </select>
     <textarea v-model="userData.description" placeholder="Açıklama" class="input mb-3" cols="30" rows="10"></textarea>
     <div class="flex items-center justify-end gap-x-1">
@@ -46,6 +46,7 @@ import { mapGetters } from 'vuex'
           Object.keys(this.userData).forEach(key => {
             this.userData[key] = null; // clear form
           })
+          this.$router.push({name: 'Home'})
           console.log(response)
         });
       }
