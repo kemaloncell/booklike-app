@@ -36,8 +36,7 @@ router.beforeEach((to, _, next) => {
     const authNotRequiredRoutes = ['Login', 'Register'];
     const _authenticated = store.getters._isAuthenticated
 
-    if(authNotRequiredRoutes.indexOf(to.name) > -1 && _authenticated) next(false)
-
+    if(authNotRequiredRoutes.indexOf(to.name) > -1 && _authenticated) next({name: 'Home'})
     if(authRequiredRoutes.indexOf(to.name) > - 1) {
         if (_authenticated) next();
         else next({ name: 'Login' });
