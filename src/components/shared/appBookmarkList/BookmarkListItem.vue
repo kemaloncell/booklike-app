@@ -1,7 +1,7 @@
 <template>
   <div  class="bg-white flex flex-col gap-x-3 rounded-md shadow-sm">
     <div class="p-3">
-      <a href="#" class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">{{item.title}}</a>
+      <a :href="item.url"  target="_blank" class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">{{item.title || '-'}}</a>
       <div class="flex items-center justify-center mt-2 gap-x-1">
         <button class="like-btn group">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" height="24" viewBox="0 0 24 24" width="24">
@@ -26,11 +26,11 @@
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> {{item}} </a>
+        <a href="#" class="hover:text-black"> {{ userName }} </a>
         <span>{{item.created_at}}</span>
       </div>
     </div>
-    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">Vue.js</div>
+    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">{{ categoryName }}</div>
   </div>
 </template>
 
@@ -41,6 +41,14 @@ export default {
     item: {
       type: Object,
       required: true,
+    }
+  },
+  computed:{
+    categoryName(){
+      return this.item?.category?.name || '-'
+    },
+    userName(){
+      return this.item?.user?.fullname || '-'
     }
   }
 }

@@ -3,9 +3,9 @@
     <h3 class="text-2xl text-center mb-3">Yeni Ekle</h3>
     <input ref="title" v-model="userData.title" type="text" placeholder="Başlık" class="input mb-3" />
     <input v-model="userData.url" type="text" placeholder="URL" class="input mb-3" />
-    <select class="input mb-3" v-model="userData.category_id">
+    <select class="input mb-3" v-model="userData.categoryId">
       <option disabled value="" selected>Kategori</option>
-      <option value="{{category.id}}" v-for="category in categoryList" :key="category.id">{{category.name}}</option>
+      <option :value="category.id" v-for="category in categoryList" :key="category.id">{{category.name}}</option>
     </select>
     <textarea v-model="userData.description" placeholder="Açıklama" class="input mb-3" cols="30" rows="10"></textarea>
     <div class="flex items-center justify-end gap-x-1">
@@ -24,7 +24,7 @@ import { mapGetters } from 'vuex'
         userData:{
           title: null,
           url: null,
-          category_id: null,
+          categoryId: null,
           description: null
         }
       };
@@ -39,7 +39,7 @@ import { mapGetters } from 'vuex'
       onSave: function () {
         const saveData = {
           ...this.userData,
-          user_id : this._getCurrentUser?.id,
+          userId : this._getCurrentUser?.id,
           created_at: new Date(),
         }
         this.$appAxios.post('/bookmarks', saveData).then(response => {

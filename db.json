@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "username": "kemal öncel",
-      "fullname": "k4@gmail.com",
+      "username": "kemaloncel",
+      "fullname": "kemal öncel",
       "password": "87d0d3d567c1754aefd0f5f014ec0937e4cf3467",
       "id": 1
     }
@@ -11,47 +11,56 @@
     {
       "title": "Frontent",
       "url": "forentend.com",
-      "category_id": "category.id",
+      "categoryId": 1,
       "description": "frontend",
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-04-17T14:33:26.909Z",
       "id": 1
     },
     {
       "title": "React native",
       "url": "react.com",
-      "category_id": "category.id",
+      "categoryId": 2,
       "description": "mobil develop",
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-04-17T17:28:43.198Z",
       "id": 2
     },
     {
       "title": "test title",
       "url": "test url",
-      "category_id": "category.id",
+      "categoryId": 3,
       "description": "test desc",
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-04-17T17:39:10.045Z",
       "id": 3
     },
     {
       "title": "2",
       "url": "2",
-      "category_id": "",
+      "categoryId": 4,
       "description": "2",
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-04-17T17:42:10.552Z",
       "id": 4
     },
     {
       "title": null,
       "url": null,
-      "category_id": "{{category.id}}",
+      "categoryId": 5,
       "description": null,
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-04-17T17:42:38.091Z",
       "id": 5
+    },
+    {
+      "title": "Kemal Öncelin sayfası",
+      "url": "kemal.com",
+      "categoryId": 6,
+      "description": "arkada yaşam",
+      "userId": 1,
+      "created_at": "2022-04-18T14:17:21.026Z",
+      "id": 6
     }
   ],
   "categories": [

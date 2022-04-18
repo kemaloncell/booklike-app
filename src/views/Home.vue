@@ -19,8 +19,9 @@ export default {
     }
   },
   created() {
-    this.$appAxios.get('/bookmarks').then(response => {
+    this.$appAxios.get('/bookmarks?_expand=category&_expand=user').then(response => {
       this.bookmarkList = response?.data || [];
+      console.log(response.data)
     })
   }
 }
