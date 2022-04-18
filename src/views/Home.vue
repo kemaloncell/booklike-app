@@ -3,7 +3,8 @@
   <div class="flex flex-row">
     <SideBar @category-changed="updateBookmarkList"/>
 
-    <app-bookmark-list :items="bookmarkList" />
+    <app-bookmark-list v-if="bookmarkList?.length > 0" :items="bookmarkList" />
+    <div v-else> Bookmark bulunmamaktadır...</div>
   </div>
 </template>
 
@@ -27,7 +28,8 @@ export default {
   },
   methods:{
     updateBookmarkList(categoryId){
-      this.$appAxios.get('/bookmarks?_expand=category&_expand=user&categoryId='+categoryId).then(response => {
+      const url = categoryId ? `/bookmarks?_expand=category&_expand=user&categoryId=${categoryId}` : `/bookmarks?_expand=category&_expand=user`;
+      this.$appAxios.get(url).then(response => {
         this.bookmarkList = response?.data || [];
         console.log(response.data)
       });

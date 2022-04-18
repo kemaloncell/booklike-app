@@ -4,7 +4,13 @@
       "username": "kemaloncel",
       "fullname": "kemal öncel",
       "password": "87d0d3d567c1754aefd0f5f014ec0937e4cf3467",
-      "id": 1
+      "id": 1,
+      "likes": [
+        2,
+        1,
+        6,
+        1
+      ]
     }
   ],
   "bookmarks": [

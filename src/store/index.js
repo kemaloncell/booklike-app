@@ -14,16 +14,22 @@ export default createStore({
         },
         logoutUser(state) {
             state.user = null;
-        }
+        },
+        addToLikes(state, bookmarkId) {
+                state.user.likes.push(bookmarkId);
+        },
     },
     getters:{
         _isAuthenticated: state=> state.user !== null,
+        _userLikes: state => state?.user?.likes || [],
+        _userBookmarks: state => state?.user?.bookmarks || [],
         _getCurrentUser(state){
             //  "?" = if userın içinde bir password var ise bunu sil password oradan oraya gitmesin güvenlik
             const user = state?.user;
             delete user.password;
             return user;
         },
+        _currentUserId: state=> state.user?.id,
         _saltKey: state=> state.saltKey
      },
 

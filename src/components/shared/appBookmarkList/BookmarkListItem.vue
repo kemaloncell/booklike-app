@@ -3,7 +3,7 @@
     <div class="p-3">
       <a :href="item.url"  target="_blank" class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">{{item.title || '-'}}</a>
       <div class="flex items-center justify-center mt-2 gap-x-1">
-        <button class="like-btn group">
+        <button @click="likeItem" class="like-btn  group" :class=" alreadyLiked ">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" height="24" viewBox="0 0 24 24" width="24">
             <path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
             <path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM9 9l4.34-4.34L12 10h9v2l-3 7H9V9zM1 9h4v12H1z" />
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'BookmarkListItem',
   props: {
@@ -43,13 +44,29 @@ export default {
       required: true,
     }
   },
+  methods: {
+    likeItem() {
+      console.log(this._userLikes)
+      const likes = [...this._userLikes, this.item.id]
+      this.$appAxios.patch(`users/${this._getCurrentUser.id}`, {likes}).then(response => {
+        console.log(response.data)
+        this.$store.commit('addToLikes', this.item.id)
+      })
+    }
+  },
   computed:{
     categoryName(){
       return this.item?.category?.name || '-'
     },
     userName(){
       return this.item?.user?.fullname || '-'
-    }
+    },
+    alreadyLiked(){
+      return {
+        "bookmark-item-active": this._userLikes?.includes(this.item.id)
+      }
+    },
+    ...mapGetters(['_getCurrentUser', "_userLikes"])
   }
 }
 </script>
