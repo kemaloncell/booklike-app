@@ -1,18 +1,15 @@
 <template>
   <app-header></app-header>
   <div class="flex flex-row">
-    <SideBar @category-changed="updateBookmarkList"/>
+  <Sidebar />
     <app-bookmark-list v-if="bookmarkList?.length > 0" :items="bookmarkList" />
     <div v-else> Bookmark bulunmamaktadır...</div>
   </div>
 </template>
-
 <script>
-import SideBar from "@/components/Home/Sidebar";
+import Sidebar from "@/components/Account/Sidebar";
 export default {
-  components: {
-    SideBar
- },
+  components: {Sidebar},
   data(){
     return {
       bookmarkList:null,
@@ -25,15 +22,5 @@ export default {
       console.log(response.data)
     });
   },
-  methods:{
-    updateBookmarkList(categoryId){
-      const url = categoryId ? `/bookmarks?_expand=category&_expand=user&categoryId=${categoryId}` : `/bookmarks?_expand=category&_expand=user`;
-      this.$appAxios.get(url).then(response => {
-        this.bookmarkList = response?.data || [];
-        console.log(response.data)
-      });
-    }
-  }
 }
 </script>
-

@@ -21,7 +21,23 @@ const routes=[
     name:'NewBookmarkPage',
     path:'/new',
     component: () => import('@/views/NewBookmark')
-    }
+    },
+    {
+    name:'Favorites',
+    path:'/account',
+    component: () => import('@/views/Account')
+    },
+    {
+    name:'Likes',
+    path:'/likes',
+    component: () => import('@/views/Account')
+    },
+    {
+    name:'Settings',
+    path:'/settings',
+    component: () => import('@/views/Account')
+    },
+
 ];
 
 
