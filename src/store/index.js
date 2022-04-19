@@ -15,8 +15,11 @@ export default createStore({
         logoutUser(state) {
             state.user = null;
         },
-        addToLikes(state, bookmarkId) {
-                state.user.likes.push(bookmarkId);
+        setLikes(state, bookmarkIds) {
+            state.user.likes = bookmarkIds;
+        },
+        setBookmarks(state, bookmarkIds) {
+            state.user.bookmarks = bookmarkIds;
         },
     },
     getters:{
