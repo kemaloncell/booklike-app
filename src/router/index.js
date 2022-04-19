@@ -25,16 +25,25 @@ const routes=[
     {
     name:'Favorites',
     path:'/account',
+    meta:{
+        componentsName:"appBookmarkList"
+    },
     component: () => import('@/views/Account')
     },
     {
     name:'Likes',
     path:'/likes',
+    meta:{
+        componentsName:"appBookmarkList"
+    },
     component: () => import('@/views/Account')
     },
     {
     name:'Settings',
     path:'/settings',
+    meta:{
+        componentsName:"userSettings"
+    },
     component: () => import('@/views/Account')
     },
 

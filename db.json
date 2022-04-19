@@ -4,17 +4,26 @@
       "username": "kemaloncel",
       "fullname": "kemal öncel",
       "password": "87d0d3d567c1754aefd0f5f014ec0937e4cf3467",
-      "id": 1,
-      "likes": [
-        5
-      ],
-      "bookmarks": [
-        4,
-        5,
-        3,
-        2,
-        1
-      ]
+      "id": 1
+    }
+  ],
+  "user_likes": [
+    {
+      "userId": 1,
+      "bookmarkId": 1,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "bookmarkId": 1,
+      "id": 2
+    }
+  ],
+  "user_bookmarks": [
+    {
+      "userId": 1,
+      "bookmarkId": 1,
+      "id": 1
     }
   ],
   "bookmarks": [
